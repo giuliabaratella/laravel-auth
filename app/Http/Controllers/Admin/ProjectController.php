@@ -6,6 +6,8 @@ use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
+
 
 
 class ProjectController extends Controller
@@ -33,7 +35,19 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $form_data = $request->validated();
+
+        $slug = Str::slug($form_data['title'], '-');
+
+        $form_data['slug'] = $slug;
+
+        $userId = auth()->id();
+        $form_data['user_id'] = $userId;
+
+
+        $newProject = Project::create($form_data);
+
+        return to_route('admin.projects.index');
     }
 
     /**
@@ -50,7 +64,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('projects'));
+        return view('admin.projects.edit', compact('project'));
 
     }
 
@@ -59,7 +73,19 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $form_data = $request->validated();
+
+        $slug = Str::slug($form_data['title'], '-');
+
+        $form_data['slug'] = $slug;
+
+        $form_data['user_id'] = $project->user_id;
+
+
+
+        $project->update($form_data);
+
+        return redirect()->route('admin.projects.show', $project->id);
     }
 
     /**
@@ -67,6 +93,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect()->route('admin.projects.index')->with('message', "The project '$project->title' has been deleted");
     }
 }

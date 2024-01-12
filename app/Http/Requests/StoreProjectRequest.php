@@ -11,7 +11,7 @@ class StoreProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,27 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|min:3|max:255|unique:projects',
+            'link' => 'required|max:255|url',
+            'description' => 'nullable',
+            'image' => 'nullable|url',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Il titolo è obbligatorio',
+            'title.min' => 'Il titolo deve avere almeno :min caratteri',
+            'title.max' => 'Il titolo deve avere massimo :max caratteri',
+            'title.unique' => 'Il titolo esiste già',
+            'link.required' => 'Il link al progetto esterno è obbligatorio',
+            'link.max' => 'Il link deve avere massimo :max caratteri',
+            'link.url' => 'Devi inserire una url valida',
+            'image.url' => 'Devi inserire una url valida',
+
+
+
         ];
     }
 }
