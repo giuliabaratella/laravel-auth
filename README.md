@@ -157,7 +157,7 @@ php artisan make:model Nome
 #popolare il db  es.
 php artisan make:seeder UsersTableSeeder
 
-php artisan db:seed --class=UsersTableSeeder
+php artisan db:seed --class=UserSeeder
 
 # preparo le rotte file web.php es.
 Route::get('/books', [BookController::class, 'index'])->name('books.index');

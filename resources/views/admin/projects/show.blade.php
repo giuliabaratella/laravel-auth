@@ -2,6 +2,7 @@
 @section('content')
     <section class="container">
         <h1>{{ $project->title }}</h1>
-        {{-- <p>section content</p> --}}
+        <h3><a href="{{ $project->link }}">{{ $project->link }}</a></h3>
+        <p>{{ $project->description }}</p>
     </section>
 @endsection
