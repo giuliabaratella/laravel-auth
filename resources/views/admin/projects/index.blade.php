@@ -12,7 +12,23 @@
                 {{-- all projects card  --}}
                 <div class="card h-100">
                     <div class="card-header">
-                        <h2>All projects</h2>
+                        <div class="d-flex justify-content-between align-items-center py-1">
+                            <h2 class="mb-0">All projects</h2>
+
+                            <div class="d-flex justify-content-end">
+
+                                <form action="{{ route('admin.projects.index') }}" method="GET">
+                                    @csrf
+                                    <div class="input-group">
+                                        <input type="search" name="search" id="search" placeholder="Search by title"
+                                            aria-label="Search" class="form-control">
+                                        <button type="submit"
+                                            class="btn btn-primary text-uppercase fw-bold ">Search</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
                     </div>
                     <div class="card-body">
                         <table class="table p-3">
@@ -67,6 +83,25 @@
                 <div class="card h-100">
                     <div class="card-header">
                         <h2>Section 2</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos accusantium consequuntur corrupti,
+                            fuga voluptatibus esse animi dignissimos, provident doloremque dolore adipisci nihil, molestiae
+                            minus aut est fugit. Cupiditate nulla fugiat earum minus incidunt dolor vel quas adipisci,
+                            voluptatibus repellat tempore eius mollitia odio doloremque aperiam odit illo! Pariatur voluptas
+                            provident molestiae voluptates atque quo maiores sapiente reiciendis nobis doloribus repellendus
+                            modi, eaque sit libero aspernatur dignissimos ipsam! Quo, aut velit modi hic perferendis
+                            distinctio quos, suscipit maiores eos consequuntur facere delectus eveniet exercitationem
+                            assumenda quasi est impedit obcaecati veniam dicta dolorem unde? Quae unde incidunt rem sequi,
+                            beatae eum est.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="col-12 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h2>Section 3</h2>
                     </div>
                     <div class="card-body">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos accusantium consequuntur corrupti,

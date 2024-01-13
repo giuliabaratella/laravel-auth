@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
+use Illuminate\Http\Request;
+
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
@@ -15,9 +17,20 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $projects = Project::all();
+
+
+        if (!empty($request->query('search'))) {
+            $search = $request->query('search');
+            $projects = Project::where('title', 'like', $search . '%')->get();
+
+        } else {
+            $projects = Project::all();
+
+        }
+
+
         return view('admin.projects.index', compact('projects'));
     }
 
