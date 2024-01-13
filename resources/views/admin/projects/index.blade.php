@@ -1,6 +1,13 @@
 @extends('layouts.app')
 @section('content')
-    <h1 class="mb-3">Projects Dashboard</h1>
+    <div class="d-flex justify-content-between mb-3">
+        <h1 class="">Projects Dashboard</h1>
+
+        <button class="btn btn-success">
+            <a href="{{ route('admin.projects.create') }}" class="text-white"> Add
+                project</a>
+        </button>
+    </div>
 
     <div>
         @if (session()->has('message'))
