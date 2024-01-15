@@ -51,7 +51,7 @@
                                 @forelse ($projects as $project)
                                     <tr>
                                         <th>
-                                            <a href="{{ route('admin.projects.show', $project->id) }}">
+                                            <a href="{{ route('admin.projects.show', $project->slug) }}">
                                                 {{ $project->title }}
                                             </a>
                                         </th>
@@ -60,7 +60,7 @@
                                                 {{ $project->link }}
                                             </a>
                                         </td>
-                                        <td><a href="{{ route('admin.projects.edit', $project->id) }}">
+                                        <td><a href="{{ route('admin.projects.edit', $project->slug) }}">
                                                 <button class="btn btn-success rounded-3 border-0">
                                                     <i class="fa-solid fa-pen" style="font-size: 0.7rem"></i>
                                                 </button>
