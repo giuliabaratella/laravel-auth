@@ -67,7 +67,7 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <form action="{{ route('admin.projects.destroy', $project->id) }}"
+                                            <form action="{{ route('admin.projects.destroy', $project->slug) }}"
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')
