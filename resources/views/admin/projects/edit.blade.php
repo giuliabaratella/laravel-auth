@@ -46,14 +46,19 @@
                                     @enderror
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="image" class="form-label">Image</label>
-
-                                    <input type="file" id="image" name="image" value="{{ $project->image }}"
-                                        class="form-control @error('image') is-invalid @enderror">
-                                    @error('image')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
+                                <div class="d-flex mb-3">
+                                    <div class="media me-4">
+                                        <img width="150" src="{{ asset('storage/' . $project->image) }}"
+                                            alt="{{ $project->title }}">
+                                    </div>
+                                    <div>
+                                        <label for="image" class="form-label">Image</label>
+                                        <input type="file" id="image" name="image" value="{{ $project->image }}"
+                                            class="form-control @error('image') is-invalid @enderror">
+                                        @error('image')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
 
                                 <div class="mb-3">

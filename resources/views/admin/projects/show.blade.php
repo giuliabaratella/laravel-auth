@@ -4,7 +4,9 @@
         <h1>{{ $project->title }}</h1>
         <h3><a href="{{ $project->link }}">{{ $project->link }}</a></h3>
 
-        <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
+        @if ($project->image)
+            <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
+        @endif
         <p>{{ $project->description }}</p>
     </section>
 @endsection

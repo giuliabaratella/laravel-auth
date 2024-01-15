@@ -50,6 +50,7 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $form_data = $request->validated();
+        // dd($form_data);
 
         $slug = Project::getSlug($form_data['title']);
 
@@ -60,7 +61,8 @@ class ProjectController extends Controller
         $form_data['user_id'] = $userId;
 
         if ($request->hasFile('image')) {
-            $img_path = Storage::put('images', $request->image);
+            $name = Str::slug($form_data['title'], '-') . '.jpg';
+            $img_path = Storage::putFileAs('images', $form_data['image'], $name);
             $form_data['image'] = $img_path;
         }
 
@@ -108,7 +110,9 @@ class ProjectController extends Controller
             if ($project->image) {
                 Storage::delete($project->image);
             }
-            $img_path = Storage::put('images', $request->image);
+            $name = Str::slug($form_data['title'], '-') . '.jpg';
+            $img_path = Storage::putFileAs('images', $form_data['image'], $name);
+
             $form_data['image'] = $img_path;
         }
 
