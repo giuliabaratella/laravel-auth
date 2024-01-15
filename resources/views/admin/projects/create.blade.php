@@ -55,7 +55,7 @@
                                         @enderror
                                     </div>
                                     <div>
-                                        <img id="uploadPreview" width="100" src="http://via.placeholder.com/300x200">
+                                        <img id="uploadPreview" width="150" src="http://via.placeholder.com/300x200">
                                     </div>
 
                                 </div>

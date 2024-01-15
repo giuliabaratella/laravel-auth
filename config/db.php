@@ -28,8 +28,8 @@ return [
         ],
         [
             // "image" => "",
-            "title" => "La Molisana",
-            "description" => "Riproduzione del sito web del brand 'La Molisana', utilizzando Laravel.",
+            "title" => "Boolzapp",
+            "description" => "Riproduzione della web-app Whatsapp con relativo comportamento responsive, utilizzando Html, Css e Javascript.",
             "link" => "https://github.com/giuliabaratella/lamolisana"
         ],
         [

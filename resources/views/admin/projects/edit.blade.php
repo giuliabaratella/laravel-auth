@@ -47,10 +47,16 @@
                                 </div>
 
                                 <div class="d-flex mb-3">
-                                    <div class="media me-4">
-                                        <img width="150" src="{{ asset('storage/' . $project->image) }}"
-                                            alt="{{ $project->title }}">
-                                    </div>
+                                    @if ($project->image)
+                                        <div class="media me-4">
+                                            <img width="150" src="{{ asset('storage/' . $project->image) }}"
+                                                alt="{{ $project->title }}">
+                                        </div>
+                                    @else
+                                        <div class="me-4">
+                                            <img id="uploadPreview" width="150" src="http://via.placeholder.com/300x200">
+                                        </div>
+                                    @endif
                                     <div>
                                         <label for="image" class="form-label">Image</label>
                                         <input type="file" id="image" name="image" value="{{ $project->image }}"
