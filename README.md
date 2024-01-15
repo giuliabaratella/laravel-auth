@@ -229,9 +229,34 @@ Route::fallback(function() {
 
 ```
 
-##File storage
+## Fileupload - File Storage
 
 ```bash
+#in env file modifica chiave
+
+FILESYSTEM_DRIVER=public
+
+#Caricheremo i nostri file nella cartella storage/app/public,
+# modifichiamo quindi in config/filestystems.php
+
+'default' => env('FILESYSTEM_DRIVER', 'public'),
+
+#lanciare comando
 
 php artisan storage:link
+
+#nelle funzioni create e edit (dove è presente il form con l'inserimento immagine)
+
+$file_path = Storage::put('uploads', $request->image);
+#oppure
+$file_path= Storage::put('nomecartella', $data['image']);
+
+
+#dopodichè aggiungere il path ai dati
+
+$data['image'] = $file_path;
+
+
+#per visualizzare nelle views
+<img src="{{ asset('storage/' . $project->image) }}">
 ```

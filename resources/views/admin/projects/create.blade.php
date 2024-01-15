@@ -44,14 +44,20 @@
                                     @enderror
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="image" class="form-label">Image</label>
+                                <div class="d-flex mb-3 column-gap-3 ">
 
-                                    <input type="file" id="image" name="image" value="{{ old('image') }}"
-                                        class="form-control @error('image') is-invalid @enderror">
-                                    @error('image')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
+                                    <div>
+                                        <label for="image" class="form-label">Image</label>
+                                        <input type="file" id="image" name="image" value="{{ old('image') }}"
+                                            class="form-control @error('image') is-invalid @enderror">
+                                        @error('image')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div>
+                                        <img id="uploadPreview" width="100" src="http://via.placeholder.com/300x200">
+                                    </div>
+
                                 </div>
 
                                 <div class="mb-3">
@@ -63,7 +69,6 @@
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
-
 
 
                                 <button type="submit" class="btn btn-primary">Submit</button>
