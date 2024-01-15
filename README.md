@@ -228,3 +228,10 @@ Route::fallback(function() {
 });
 
 ```
+
+##File storage
+
+```bash
+
+php artisan storage:link
+```
