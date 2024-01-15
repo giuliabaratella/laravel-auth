@@ -27,11 +27,12 @@ class UpdateProjectRequest extends FormRequest
                 'required',
                 'min:3',
                 'max:255',
-                // Rule::unique('projects')->ignore($this->post)
+                Rule::unique('projects')->ignore($this->project)
             ],
             'link' => 'required|max:255|url',
             'description' => 'nullable',
-            'image' => 'nullable|image',
+            'image' => 'nullable|image|max:1024|mimes:jpg',
+
         ];
     }
 
@@ -41,11 +42,13 @@ class UpdateProjectRequest extends FormRequest
             'title.required' => 'Il titolo è obbligatorio',
             'title.min' => 'Il titolo deve avere almeno :min caratteri',
             'title.max' => 'Il titolo deve avere massimo :max caratteri',
+            'title.unique' => 'Il titolo esiste già',
             'link.required' => 'Il link al progetto esterno è obbligatorio',
             'link.max' => 'Il link deve avere massimo :max caratteri',
             'link.url' => 'Devi inserire una url valida',
             'image.image' => 'Il file deve essere di tipo image',
-
+            'image.max' => 'Il file deve pesare massimo 1mb',
+            'image.mimes' => 'Il file deve essere di tipo jpg',
 
 
         ];

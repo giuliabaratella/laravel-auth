@@ -25,7 +25,7 @@ class StoreProjectRequest extends FormRequest
             'title' => 'required|min:3|max:255|unique:projects',
             'link' => 'required|max:255|url',
             'description' => 'nullable',
-            'image' => 'nullable|image',
+            'image' => 'nullable|image|max:1024|mimes:jpg',
         ];
     }
 
@@ -40,6 +40,9 @@ class StoreProjectRequest extends FormRequest
             'link.max' => 'Il link deve avere massimo :max caratteri',
             'link.url' => 'Devi inserire una url valida',
             'image.image' => 'Il file deve essere di tipo image',
+            'image.max' => 'Il file deve pesare massimo 1mb',
+            'image.mimes' => 'Il file deve essere di tipo jpg',
+
 
 
 
