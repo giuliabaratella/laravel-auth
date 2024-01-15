@@ -31,7 +31,7 @@ class UpdateProjectRequest extends FormRequest
             ],
             'link' => 'required|max:255|url',
             'description' => 'nullable',
-            'image' => 'nullable|url',
+            'image' => 'nullable|image',
         ];
     }
 
@@ -44,7 +44,7 @@ class UpdateProjectRequest extends FormRequest
             'link.required' => 'Il link al progetto esterno è obbligatorio',
             'link.max' => 'Il link deve avere massimo :max caratteri',
             'link.url' => 'Devi inserire una url valida',
-            'image.url' => 'Devi inserire una url valida',
+            'image.image' => 'Il file deve essere di tipo image',
 
 
 

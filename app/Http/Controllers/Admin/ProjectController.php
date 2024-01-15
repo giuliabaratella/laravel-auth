@@ -100,7 +100,10 @@ class ProjectController extends Controller
 
         $form_data['user_id'] = $project->user_id;
 
-
+        if ($request->hasFile('image')) {
+            $img_path = Storage::put('images', $request->image);
+            $form_data['image'] = $img_path;
+        }
 
         $project->update($form_data);
 
